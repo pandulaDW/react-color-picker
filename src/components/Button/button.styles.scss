@@ -1,6 +1,6 @@
 .Button {
   padding: 20px 50px;
-  background-color: rgb(199, 53, 0);
+  background-color: slateblue;
   color: white;
   border: none;
   border-radius: 6px;
@@ -10,6 +10,11 @@
   transition: all 0.4s;
 
   &:hover {
-    background-color: rgb(182, 48, 0);
+    background-color: rgb(67, 51, 170);
+  }
+
+  // firefox button text outline
+  &::-moz-focus-inner {
+    border: 0;
   }
 }

@@ -15,12 +15,14 @@ class Die extends React.Component {
   render() {
     const num1 = this.numberMap.get(this.props.die1);
     const num2 = this.numberMap.get(this.props.die2);
+    const animateOrNot = this.props.animate ? "animate" : null;
+
     return (
       <div className="Die">
-        <div className="icon-left">
+        <div className={`${animateOrNot}`}>
           <i className={`fas fa-dice-${num1}`}></i>
         </div>
-        <div className="icon-right">
+        <div className={`${animateOrNot}`}>
           <i className={`fas fa-dice-${num2}`}></i>
         </div>
       </div>
