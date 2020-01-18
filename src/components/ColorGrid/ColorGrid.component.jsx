@@ -11,25 +11,25 @@ class ColorGrid extends React.Component {
   }
 
   // Create a random color using RGB
-  randomColorPicker = () => {
+  randomColorPicker() {
     return new Array(3).fill(1).map(_ => Math.floor(Math.random() * 256));
-  };
+  }
 
   // Create the initial state object with array index as key and color as value
-  setInitialState = () => {
+  setInitialState() {
     const initialColors = new Array(18)
       .fill(1)
       .map(_ => this.randomColorPicker());
     const colorMap = new Map(initialColors.map((el, id) => [`color${id}`, el]));
     return Object.fromEntries(colorMap);
-  };
+  }
 
-  // this will be return as a function call from an anonymous function
-  handleClick = id => {
+  // Can be binded with the id
+  handleClick(id) {
     const stateObj = {};
     stateObj[`color${id}`] = this.randomColorPicker();
     this.setState(stateObj);
-  };
+  }
 
   render() {
     return (
@@ -38,7 +38,7 @@ class ColorGrid extends React.Component {
           <ColorBox
             color={this.state[`color${id}`]}
             key={id}
-            handleClick={() => this.handleClick(id)}
+            handleClick={this.handleClick.bind(this, id)}
           />
         ))}
       </div>
