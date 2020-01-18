@@ -12,14 +12,14 @@ class ColorGrid extends React.Component {
 
   // Create a random color using RGB
   randomColorPicker() {
-    return new Array(3).fill(1).map(_ => Math.floor(Math.random() * 256));
+    return new Array(3).fill(1).map(() => Math.floor(Math.random() * 256));
   }
 
   // Create the initial state object with array index as key and color as value
   setInitialState() {
     const initialColors = new Array(18)
       .fill(1)
-      .map(_ => this.randomColorPicker());
+      .map(() => this.randomColorPicker());
     const colorMap = new Map(initialColors.map((el, id) => [`color${id}`, el]));
     return Object.fromEntries(colorMap);
   }
