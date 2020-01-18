@@ -1,13 +1,14 @@
 import React from "react";
 
-import "./App.css";
-import Flipper from "./components/Flipper/Flipper.component";
+import "./App.scss";
+import ColorGrid from "./components/ColorGrid/ColorGrid.component";
 
 class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Flipper />
+        <h1 className="text">Color Picker</h1>
+        <ColorGrid />
       </div>
     );
   }
