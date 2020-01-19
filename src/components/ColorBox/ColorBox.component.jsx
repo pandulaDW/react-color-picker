@@ -3,6 +3,16 @@ import React from "react";
 import "./ColorBox.styles.scss";
 
 class ColorBox extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleRemove = this.handleRemove.bind(this);
+  }
+
+  // not gonna create a bunch of binded functions
+  handleRemove() {
+    this.props.handleClick(this.props.colorId);
+  }
+
   render() {
     const [red, green, blue] = [...this.props.color];
     return (
@@ -11,7 +21,7 @@ class ColorBox extends React.Component {
         style={{
           backgroundColor: `rgb(${red}, ${green}, ${blue})`
         }}
-        onClick={this.props.handleClick}
+        onClick={this.handleRemove}
       />
     );
   }

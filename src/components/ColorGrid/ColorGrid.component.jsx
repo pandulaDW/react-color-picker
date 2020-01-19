@@ -8,6 +8,7 @@ class ColorGrid extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.setInitialState();
+    this.handleClick = this.handleClick.bind(this);
   }
 
   // Create a random color using RGB
@@ -24,10 +25,11 @@ class ColorGrid extends React.Component {
     return Object.fromEntries(colorMap);
   }
 
-  // Can be binded with the id
+  // A better solution is implement in the child component
   handleClick(id) {
     const stateObj = {};
     stateObj[`color${id}`] = this.randomColorPicker();
+    console.log(stateObj);
     this.setState(stateObj);
   }
 
@@ -38,7 +40,8 @@ class ColorGrid extends React.Component {
           <ColorBox
             color={this.state[`color${id}`]}
             key={id}
-            handleClick={this.handleClick.bind(this, id)}
+            colorId={id}
+            handleClick={this.handleClick}
           />
         ))}
       </div>
