@@ -1,5 +1,7 @@
 .ColorGrid {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-wrap: wrap;
+  align-content: space-between;
+  height: 500px;
 }

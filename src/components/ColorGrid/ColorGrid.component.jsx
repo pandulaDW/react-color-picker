@@ -16,6 +16,16 @@ class ColorGrid extends React.Component {
     return new Array(3).fill(1).map(() => Math.floor(Math.random() * 256));
   }
 
+  // function to avoid duplicate colors
+  checkStateColors() {
+    const randColor = this.randomColorPicker();
+    return Object.values(this.state)
+      .map(el => JSON.stringify(el))
+      .indexOf(JSON.stringify(randColor)) === -1
+      ? randColor
+      : this.checkStateColors();
+  }
+
   // Create the initial state object with array index as key and color as value
   setInitialState() {
     const initialColors = new Array(18)
@@ -28,8 +38,7 @@ class ColorGrid extends React.Component {
   // A better solution is implement in the child component
   handleClick(id) {
     const stateObj = {};
-    stateObj[`color${id}`] = this.randomColorPicker();
-    console.log(stateObj);
+    stateObj[`color${id}`] = this.checkStateColors();
     this.setState(stateObj);
   }
 
