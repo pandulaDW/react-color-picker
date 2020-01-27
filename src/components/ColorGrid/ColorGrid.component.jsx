@@ -1,4 +1,5 @@
 import React from "react";
+import uuid from "uuid";
 
 import ColorBox from "../ColorBox/ColorBox.component";
 
@@ -48,7 +49,7 @@ class ColorGrid extends React.Component {
         {new Array(18).fill(1).map((el, id) => (
           <ColorBox
             color={this.state[`color${id}`]}
-            key={id}
+            key={uuid()}
             colorId={id}
             handleClick={this.handleClick}
           />
